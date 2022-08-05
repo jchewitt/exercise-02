@@ -1,6 +1,7 @@
+const util = require('./util');
 const calc = require('./calc');
 
-const searchData = (id, year) => {
+const logData = (id, year) => {
   const dollarUSLocale = Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
@@ -25,5 +26,8 @@ const searchData = (id, year) => {
   console.log(`================================`);
 };
 
-searchData(67352, 2007);
-searchData(87964, 2011);
+logData(67352, 2007);
+logData(87964, 2011);
+
+
+

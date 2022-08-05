@@ -1,4 +1,4 @@
-const saleData = require('./mock.json');
+const saleData = require("./mock.json");
 
 const getValues = (id, year) => {
   const model = saleData[id];
@@ -7,13 +7,9 @@ const getValues = (id, year) => {
   }
   const {
     schedule: {
-      years: {
-        [year]: yearData
-      }
+      years: { [year]: yearData }
     },
-    saleDetails: {
-      cost
-    } = {cost: 0},
+    saleDetails: { cost } = { cost: 0 },
     classification = {}
   } = model;
   if (!yearData) {
