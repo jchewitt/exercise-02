@@ -8,11 +8,7 @@ const getValues = (id, year) => {
   const {
     schedule: {
       years: {
-        [year]: {
-          marketRatio = 0,
-          auctionRatio = 0
-        } = {},
-        [year]: yearExists = null
+        [year]: yearData
       }
     },
     saleDetails: {
@@ -20,12 +16,12 @@ const getValues = (id, year) => {
     } = {cost: 0},
     classification = {}
   } = model;
-  if (!yearExists) {
+  if (!yearData) {
     throw Error(`year doesn't exist on id ${id} (${year})`);
   }
 
-  const marketValue = marketRatio * cost;
-  const auctionValue = auctionRatio * cost;
+  const marketValue = yearData.marketRatio * cost;
+  const auctionValue = yearData.auctionRatio * cost;
 
   return {
     classification,
